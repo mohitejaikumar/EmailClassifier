@@ -1,0 +1,1 @@
+export const SCOPE = `https://www.googleapis.com/auth/gmail.readonly https://mail.google.com https://www.googleapis.com/auth/gmail.modify https://www.googleapis.com/auth/gmail.addons.current.message.readonly https://www.googleapis.com/auth/gmail.addons.current.message.metadata openid email profile`;
