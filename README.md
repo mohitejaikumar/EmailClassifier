@@ -157,4 +157,4 @@ spec:
         image: my-app-image:latest
         ports:
         - containerPort: 8080
-
+https://github.com/mohitejaikumar/EmailClassifier/assets/124685897/49b7891a-5849-49e7-9fb7-d0bcc7ba1ccd
