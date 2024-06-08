@@ -54,9 +54,12 @@ This project is a full-stack application with a Next.js frontend and a Node.js b
 
    The backend will be running at [http://localhost:8080](http://localhost:8080).
 
-# My App Deployment
+# Backend Deployment
 
-This repository contains the necessary configurations to deploy `my-app` using Kubernetes. The application can be deployed in both a local cluster using `kind` or in a cloud environment like AWS.
+This repository contains the necessary configurations to deploy `backend` using Kubernetes. The application can be deployed in both a local cluster using `kind` or in a cloud environment like AWS.
+
+Backend Docker Image - jkmohite/email-classifier-backend:latest
+Visit - https://hub.docker.com/repository/docker/jkmohite/email-classifier-backend/general
 
 ## Prerequisites
 
