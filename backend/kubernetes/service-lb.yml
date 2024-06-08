@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: email-classifier-backend-service
+spec:
+  selector:
+    app: worker
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
