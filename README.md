@@ -3,13 +3,13 @@
 
 This project is a full-stack application with a Next.js frontend and a Node.js backend. The frontend runs on port 3000 and the backend runs on port 8080.
 
-https://github.com/mohitejaikumar/EmailClassifier/assets/124685897/49b7891a-5849-49e7-9fb7-d0bcc7ba1ccd
+https://github.com/mohitejaikumar/EmailClassifier/assets/124685897/c1d2207d-c700-47b4-918e-3b363e790f9b
 
 ## Prerequisites
 
-- Node.js
+- Node.js , express.js , openAPI API
 - npm
-- Nextjs
+- Nextjs , NextAuth , schadcnUi , k8s , docker 
 
 ## Getting Started
 
