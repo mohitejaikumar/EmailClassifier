@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { CLASSIFY_EMAIL_PROMP } from "./constants";
+import { CLASSIFY_EMAIL_PROMPT } from "./constants";
 
 export class GPTManager {
   private openAI_APIKey: string;
@@ -21,19 +21,19 @@ export class GPTManager {
   }
 
   async classifyEmail(emailMessage: string) {
-    let prompt = CLASSIFY_EMAIL_PROMP;
+    let prompt = CLASSIFY_EMAIL_PROMPT;
     prompt += `  Email: ${emailMessage}   Category: `;
-
+    let answer = "";
     try {
-      const response = await this.openai.completions.create({
-        model: "text-embedding-ada-002",
-        prompt: prompt,
-        max_tokens: 10,
-        temperature: 0,
+      const completion = await this.openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }],
       });
-      console.log(response.choices[0].text);
+      answer = completion.choices?.[0].message.content || "";
+      console.log(answer);
     } catch (error) {
       console.error("Error classifying email:", error);
     }
+    return answer;
   }
 }

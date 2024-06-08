@@ -10,13 +10,16 @@ export default async function middleware(req: NextRequest) {
   const isAuthenticated = token ? true : false;
   const pathSegments = req.nextUrl.pathname.split("/");
 
-  if (!isAuthenticated && pathSegments[1] == "dashboard") {
-    const loginPath = `/auth/login/`;
+  if (
+    !isAuthenticated &&
+    (pathSegments[1] === "dashboard" || pathSegments[1] === "openAI-api-key")
+  ) {
+    const loginPath = `/`;
     const loginURL = new URL(loginPath, req.nextUrl.origin);
     return NextResponse.redirect(loginURL.toString());
   }
-  if (isAuthenticated && pathSegments[2] == "login") {
-    const newURL = new URL("/dashboard", req.nextUrl.origin);
+  if (isAuthenticated && pathSegments[1] == "") {
+    const newURL = new URL("/openAI-api-key", req.nextUrl.origin);
     return NextResponse.redirect(newURL.toString());
   }
   return NextResponse.next();
