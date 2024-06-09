@@ -18,7 +18,7 @@ export default async function middleware(req: NextRequest) {
     const loginURL = new URL(loginPath, req.nextUrl.origin);
     return NextResponse.redirect(loginURL.toString());
   }
-  if (isAuthenticated && pathSegments[1] == "") {
+  if (isAuthenticated) {
     const newURL = new URL("/openAI-api-key", req.nextUrl.origin);
     return NextResponse.redirect(newURL.toString());
   }
