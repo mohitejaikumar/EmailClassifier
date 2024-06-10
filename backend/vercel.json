@@ -4,7 +4,20 @@
     {
       "src": "dist/index.js",
       "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
+      "config": {
+        "includeFiles": ["dist/**"],
+        "functions": {
+          "dist/controllers/*.js": {
+            "maxDuration": 500
+          },
+          "dist/managers/*.js": {
+            "maxDuration": 500
+          },
+          "dist/index.js": {
+            "maxDuration": 500
+          }
+        }
+      }
     }
   ],
   "routes": [
@@ -12,16 +25,5 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ],
-  "functions": {
-    "dist/controllers/*.js": {
-      "maxDuration": 500
-    },
-    "dist/managers/*.js": {
-      "maxDuration": 500
-    },
-    "dist/index.js": {
-      "maxDuration": 500
-    }
-  }
+  ]
 }
