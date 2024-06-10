@@ -16,7 +16,7 @@
     }
   ],
   "functions": {
-    "/email/getEmail": {
+    "dist/index.js": {
       "maxDuration": 500
     }
   }
