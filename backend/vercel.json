@@ -19,6 +19,9 @@
     },
     "dist/managers/*.js": {
       "maxDuration": 500
+    },
+    "dist/index.js": {
+      "maxDuration": 500
     }
   }
 }
