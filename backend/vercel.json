@@ -16,7 +16,7 @@
     }
   ],
   "functions": {
-    "dist/controllers/getEmail.js": {
+    "api/email/getEmail.js": {
       "maxDuration": 500
     }
   }
