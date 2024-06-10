@@ -7,13 +7,7 @@
       "config": {
         "includeFiles": ["dist/**"],
         "functions": {
-          "dist/controllers/*.js": {
-            "maxDuration": 500
-          },
-          "dist/managers/*.js": {
-            "maxDuration": 500
-          },
-          "dist/index.js": {
+          "email/getEmail.js": {
             "maxDuration": 500
           }
         }
