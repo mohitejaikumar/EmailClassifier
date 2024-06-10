@@ -13,7 +13,7 @@ exports.getEmail = void 0;
 const googleapis_1 = require("googleapis");
 const GPTManager_1 = require("../managers/GPTManager");
 const getEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b, _c, _d;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     try {
         const { refreshToken, numberOfMessages, openAPIKey } = req.body;
         if (!openAPIKey) {
@@ -46,9 +46,10 @@ const getEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             const body = Buffer.from(JSON.stringify(((_b = (_a = messageRes.data.payload) === null || _a === void 0 ? void 0 : _a.body) === null || _b === void 0 ? void 0 : _b.data) || ""), "base64").toString();
             // email "FROM " header
             const header = JSON.stringify((_d = (_c = messageRes.data.payload) === null || _c === void 0 ? void 0 : _c.headers) === null || _d === void 0 ? void 0 : _d.filter((it) => it.name === "From")[0].value);
+            const subject = JSON.stringify((_f = (_e = messageRes.data.payload) === null || _e === void 0 ? void 0 : _e.headers) === null || _f === void 0 ? void 0 : _f.filter((it) => it.name === "Subject")[0].value);
+            const date = JSON.stringify((_h = (_g = messageRes.data.payload) === null || _g === void 0 ? void 0 : _g.headers) === null || _h === void 0 ? void 0 : _h.filter((it) => it.name === "Date")[0].value);
             const reducedMessage = body.substring(0, Math.min(body.length - 1, 1000));
-            reducedMessage.concat(header);
-            console.log(reducedMessage, header);
+            reducedMessage.concat(header, subject);
             GPTManager_1.GPTManager.getInstance(openAPIKey)
                 .classifyEmail(reducedMessage)
                 .then((answer) => {
@@ -56,6 +57,8 @@ const getEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                     message: body,
                     header: header,
                     category: answer,
+                    date: date,
+                    subject: subject,
                 });
             });
             yield new Promise((resolve) => {
