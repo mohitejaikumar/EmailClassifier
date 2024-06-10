@@ -2,7 +2,9 @@
 # Email-Classifier
 
 This project is a full-stack application with a Next.js frontend and a Node.js backend. The frontend runs on port 3000 and the backend runs on port 8080.
+
 Live link - https://email-classifier-frontend.jaik.co.in/
+
 https://github.com/mohitejaikumar/EmailClassifier/assets/124685897/c1d2207d-c700-47b4-918e-3b363e790f9b
 
 ## Prerequisites
