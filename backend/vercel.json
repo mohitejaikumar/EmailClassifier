@@ -16,7 +16,7 @@
     }
   ],
   "functions": {
-    "dist/index.js": {
+    "/dist/index.js": {
       "maxDuration": 500
     }
   }
