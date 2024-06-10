@@ -11,6 +11,9 @@ app.use(cors());
 app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/email", emailRouter);
+app.get("/", (req, res) => {
+  res.json({ message: "Hello World" });
+});
 app.listen(PORT, () => {
   console.log("listening on port: " + PORT);
 });
