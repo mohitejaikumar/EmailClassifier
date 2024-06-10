@@ -12,5 +12,13 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ]
+  ],
+  "functions": {
+    "dist/controllers/*.js": {
+      "maxDuration": 500
+    },
+    "dist/managers/*.js": {
+      "maxDuration": 500
+    }
+  }
 }
