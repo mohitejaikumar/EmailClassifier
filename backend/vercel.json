@@ -8,7 +8,7 @@
         "includeFiles": ["dist/**"],
         "functions": {
           "/dist/index.js": {
-            "maxDuration": 500
+            "maxDuration": 60
           }
         }
       }
