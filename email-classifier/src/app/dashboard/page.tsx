@@ -155,6 +155,8 @@ export default function Page() {
                     key={index}
                     title={iteam.header}
                     content={iteam.message}
+                    subject={iteam.subject}
+                    date={iteam.date}
                     category={iteam.category}
                     openModal={() => {
                       setOpenModal(true);
@@ -170,6 +172,8 @@ export default function Page() {
           <EmailDialog
             title={selectedEmail.header}
             content={selectedEmail.message}
+            date={selectedEmail.date}
+            subject={selectedEmail.subject}
             closeModal={closeModal}
           />
         )}

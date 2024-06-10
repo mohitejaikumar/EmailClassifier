@@ -8,20 +8,15 @@ interface Props {
   content: string;
   category: string;
   openModal: () => void;
+  date: string;
+  subject: string;
 }
 export const EmailMessageCard = ({
   title,
-  content,
   category,
   openModal,
+  subject,
 }: Props) => {
-  if (content.length > 0) {
-    content = content
-      .substring(0, Math.min(content.length - 1, 100))
-      .concat(".....");
-  } else {
-    content = "No Data Content";
-  }
   return (
     <>
       <Card className="bg-[#333333] border border-white">
@@ -41,7 +36,9 @@ export const EmailMessageCard = ({
           </div>
         </CardHeader>
         <CardContent>
-          <p className="w-full h-auto break-words">{content}</p>
+          <p className="w-full h-auto break-words">
+            {subject.replaceAll('"', "")}
+          </p>
         </CardContent>
       </Card>
     </>

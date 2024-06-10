@@ -6,6 +6,8 @@ interface ResponseMessages {
   message: string;
   header: string;
   category: string;
+  date: string;
+  subject: string;
 }
 
 export const getEmail = async (req: Request, res: Response) => {
@@ -49,10 +51,18 @@ export const getEmail = async (req: Request, res: Response) => {
         messageRes.data.payload?.headers?.filter((it) => it.name === "From")[0]
           .value
       );
+      const subject = JSON.stringify(
+        messageRes.data.payload?.headers?.filter(
+          (it) => it.name === "Subject"
+        )[0].value
+      );
+      const date = JSON.stringify(
+        messageRes.data.payload?.headers?.filter((it) => it.name === "Date")[0]
+          .value
+      );
 
       const reducedMessage = body.substring(0, Math.min(body.length - 1, 1000));
-      reducedMessage.concat(header);
-      console.log(reducedMessage, header);
+      reducedMessage.concat(header, subject);
 
       GPTManager.getInstance(openAPIKey)
         .classifyEmail(reducedMessage)
@@ -61,6 +71,8 @@ export const getEmail = async (req: Request, res: Response) => {
             message: body,
             header: header,
             category: answer,
+            date: date,
+            subject: subject,
           });
         });
 
