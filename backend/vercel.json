@@ -5,7 +5,12 @@
       "src": "dist/index.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["dist/**"]
+        "includeFiles": ["dist/**"],
+        "functions": {
+          "dist/index.js": {
+            "maxDuration": 500
+          }
+        }
       }
     }
   ],
@@ -14,10 +19,5 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ],
-  "functions": {
-    "/dist/index.js": {
-      "maxDuration": 500
-    }
-  }
+  ]
 }
