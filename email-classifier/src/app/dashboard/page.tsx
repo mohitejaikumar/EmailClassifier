@@ -103,6 +103,7 @@ export default function Page() {
   };
 
   const handleLogout = async () => {
+    localStorage.clear();
     await signOut();
   };
 
