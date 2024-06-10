@@ -5,12 +5,7 @@
       "src": "dist/index.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["dist/**"],
-        "functions": {
-          "email/getEmail.js": {
-            "maxDuration": 500
-          }
-        }
+        "includeFiles": ["dist/**"]
       }
     }
   ],
@@ -19,5 +14,10 @@
       "src": "/(.*)",
       "dest": "dist/index.js"
     }
-  ]
+  ],
+  "functions": {
+    "email/getEmail.js": {
+      "maxDuration": 500
+    }
+  }
 }
