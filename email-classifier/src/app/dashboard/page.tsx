@@ -130,7 +130,7 @@ export default function Page() {
             variant="outline"
             className="text-white border-white"
             onClick={handleLogout}>
-            Login/Logout
+            Logout
           </Button>
         </div>
         <div className="flex items-center justify-between mb-6 mt-20">
